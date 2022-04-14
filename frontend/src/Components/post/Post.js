@@ -10,7 +10,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import "./Post.css";
 //import { getPost,commentPost,likePost} from '../../Redux/Actions/postaction';
-import CommentSection from './CommentSection';
+
 import { deletePost } from '../../Redux/Actions/postaction';
 
 const Post = ({post}) => {
@@ -40,11 +40,9 @@ const Post = ({post}) => {
       </CardContent>
       <CardActions>
         <Button size="small">Share</Button>
-        <Link to={`/postDetails/${id}`}> <Button size="small"  >Learn More</Button></Link>
+        <Link to={`/postDetails/${post._id}`}> <Button size="small"  >Learn More</Button></Link>
         <Button size="small" onClick={()=>dispatch(deletePost(post._id))} >Delete</Button>
-        <div className="comments">
-              <CommentSection post={post} />
-            </div>
+        
       </CardActions>
       </Card>
        ):( 

@@ -3,7 +3,7 @@ import Post from "./Post";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {getPosts} from '../../Redux/Actions/postaction';
-import {getUser} from '../../Redux/Actions/Useraction';
+//import {getUser} from '../../Redux/Actions/Useraction';
 import './Post.css';
 
 export default function PostList() {
@@ -22,7 +22,7 @@ export default function PostList() {
 
 
   return (
-    <div>
+    <div >
      {posts.map((post) => (
             <Post post={post} key={post.id} />
           ))}

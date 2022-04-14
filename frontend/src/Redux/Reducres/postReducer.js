@@ -5,6 +5,7 @@ from '../ActionsTypes/postConstant';
 const intialState = {
     loading: false,
     posts: [],
+    post:{},
     errors: null,
   };
   export const postReducer = (state = intialState, { type, payload }) => {
@@ -12,7 +13,7 @@ const intialState = {
       case  LOAD_POST:
         return { ...state, loading: true };
         case CREATE_SUCCESS:
-          return { ...state,posts:payload, loading: false };
+          return { ...state,post:payload, loading: false };
           case CREATE_FAIL:
           return { ...state,errors: payload};
           case GET_ALL:
@@ -20,7 +21,7 @@ const intialState = {
           case GET_ALL_FAIL:
            return { ...state, errors: payload };
            case GET_POST:
-            return { ...state, posts: payload, loading: false };
+            return { ...state, post: payload, loading: false };
            case GET_POST_FAIL:
             return { ...state, errors: payload }; 
             case LIKE:

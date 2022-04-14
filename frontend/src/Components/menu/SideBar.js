@@ -68,7 +68,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 const mdTheme = createTheme();
 
 function DashboardContent() {
-  const posts = useSelector((state) => state.postReducer.posts);
+ 
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -99,7 +99,7 @@ function DashboardContent() {
             {secondaryListItems}
           </List>
         </Drawer>
-       < CommentSection/>
+       < CommentSection />
         
       </Box>
     </ThemeProvider>

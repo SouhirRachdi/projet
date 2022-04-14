@@ -5,7 +5,6 @@ const postSchema=new mongoose.Schema({
     question:{type:String,required:true},
     user:{type:mongoose.Schema.Types.ObjectId,ref:"user"},
     likesCount:[{type:mongoose.Schema.Types.ObjectId,ref:"User"}],
-
    comments:[{text:String,user:{type:mongoose.Schema.Types.ObjectId,ref:"user"},createdAt: {
     type: Date,
     default: new Date(),

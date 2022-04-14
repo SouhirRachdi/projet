@@ -6,7 +6,7 @@ const router = express.Router();
 
 //add Post
 router.post("/addPost", isAuth(),async (req, res) => {
-    const { title, message,question ,user  } = req.body;
+    const { title, message,question} = req.body;
     try {
         const newPost = new Post({...req.body,user:req.user._id});
         await newPost.save();
@@ -41,11 +41,10 @@ router.get("/getPost/:id",isAuth(), async (req, res) => {
   //update post
   router.put("/upDatePost/:id",isAuth(), async (req, res) => {
     const { id } = req.params;
-    const { title, message,user,comment } = req.body;
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+    const { title, message,question } = req.body;
     try {
-      const updatedPost = { title, message, user,comment,_id: id };
-      await Post.findByIdAndUpdate(id,updatedPost,{ new: true });
+      const updatedPost  =await Post.findByIdAndUpdate(id,{ title, message,question },{ new: true });
+     
       res.send({updatedPost});
     } catch (err) {
       res.status(400).send(err.message);
@@ -69,18 +68,16 @@ router.get("/getPost/:id",isAuth(), async (req, res) => {
   });
 
   //commentPost
-  router.put("/commentPost/:id",isAuth(), async (req, res) => {
+  router.post("/commentPost/:id",isAuth(), async (req, res) => {
     const { id } = req.params;
     const comment = {
       text: req.body.text,
-      user: req.user,
+      user: req.user._id,
     };
     try {
       const commentpost = await Post.findByIdAndUpdate(id,{$push: { comments: comment },}
       ,{new:true});
-     
-     
-      res.send({ Post:commentpost, message: "comment succesffuly posted" });
+      res.send({ post:commentpost, message: "comment succesffuly posted" });
     } catch (err) {
       res.status(400).send(err.message);
     }
@@ -95,7 +92,7 @@ router.get("/getPost/:id",isAuth(), async (req, res) => {
       ,{new:true});
      
      
-      res.send({ Post:likePost , message: "likePost succesffuly " });
+      res.send({ post:likePost , message: "likePost succesffuly " });
     } catch (err) {
       res.status(400).send(err.message);
     }

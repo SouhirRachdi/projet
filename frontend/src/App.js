@@ -68,9 +68,8 @@ useEffect(() => {
      <Route path="/addPost" element={<div><NavBarPost/><Menu/></div>}/>
      <Route path="/library" element={<div><NavBar/><LibraryList/></div>}/>
      <Route path="/addtolab" element={<div><NavBar/><AddLab/></div>}/>
-
      <Route path="/PostList" element={<div><NavBarPost/><PostList/></div>}/>
-     <Route path="/postDetails/: id"  element={<div><NavBarPost/><SideBar/></div>}/>
+     <Route path="/postDetails/:id"  element={<div><NavBarPost/><SideBar/></div>}/>
 
      </Routes>
     </div>
