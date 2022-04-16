@@ -24,7 +24,7 @@ import { getPosts } from './Redux/Actions/postaction';
 import PostList from './Components/post/PostList';
 
 
-import SideBar from './Components/menu/SideBar'
+import AddPost from './Components/menu/AddPost'
 //import AddLibrary from './Components/library/AddLibrary';
 import AddLab from './Components/library/AddLab';
 import LibraryList from './Components/library/LibraryList';
@@ -69,7 +69,7 @@ useEffect(() => {
      <Route path="/library" element={<div><NavBar/><LibraryList/></div>}/>
      <Route path="/addtolab" element={<div><NavBar/><AddLab/></div>}/>
      <Route path="/PostList" element={<div><NavBarPost/><PostList/></div>}/>
-     <Route path="/postDetails/:id"  element={<div><NavBarPost/><SideBar/></div>}/>
+     <Route path="/postDetails/:id"  element={<div><NavBarPost/><AddPost/></div>}/>
 
      </Routes>
     </div>

@@ -13,7 +13,7 @@ router.post("/addvideo", isAuth(),isProf,upload("library").single("file"),async 
   
     try {
         const newvideo = new Library(req.body);
-        newvideo.content= `${url}/${file.path}`;
+        newvideo.video= `${url}/${file.path}`;
         await newvideo.save();
         res.send({ video: newvideo, message: "video succesffuly add" }); 
       } catch (err) {

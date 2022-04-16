@@ -32,7 +32,7 @@ const CommentSection = () => {
               alt="brown couch"
             />
             <div className="card__content">
-            <span className="card__title"> {posts.find((post) => post._id == _id).title}  </span>
+            <span className="card__title">  </span>
               <span className="card__question"> </span>
                
               
